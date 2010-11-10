@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-
 // Common script to include to get things rolling
 define('COMMON_INCLUDED', 1);
 
@@ -10,6 +8,17 @@ if (!defined('BASE_DIR'))
 
 // Load site config
 require BASE_DIR.'config.php';
+
+if ($config['debug_mode']) {
+	$debug['start'] = microtime(true);
+	error_reporting(E_ALL);
+	function shutdown()
+	{
+		global $debug;
+		echo '<div class="container" style="color: #666; margin-top: 20px;">Page generation time: ', microtime(true)-$debug['start'], ' seconds</div>';
+	}
+	register_shutdown_function('shutdown');
+}
 
 // Autoload classes
 function __autoload($class_name) {
@@ -21,6 +30,8 @@ $page = new Mu();
 
 // Add standard data to template view
 $page->addView(array(
-	'title' => 'Test',
-	'config' => $config
+	'page_head' => array(
+		'title' => 'Test',
+		'url_prefix' => $config['url_prefix']
+	)
 ));

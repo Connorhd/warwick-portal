@@ -5,5 +5,6 @@ if (!defined('COMMON_INCLUDED'))
 	
 // Config stuff here
 $config = array(
-	'url_prefix' => 'warwick-portal/'
+	'url_prefix' => 'warwick-portal/',
+	'debug_mode' => true
 );
