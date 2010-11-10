@@ -9,6 +9,9 @@ if (!defined('BASE_DIR'))
 // Load site config
 require BASE_DIR.'config.php';
 
+if ($config['allow_debug_mode'] && isset($_GET['debug']) && $_GET['debug'])
+	$config['debug_mode'] = true;
+
 if ($config['debug_mode']) {
 	$debug['start'] = microtime(true);
 	error_reporting(E_ALL);
@@ -33,5 +36,6 @@ $page->addView(array(
 	'page_head' => array(
 		'title' => 'Test',
 		'url_prefix' => $config['url_prefix']
-	)
+	),
+	'debug_mode' => $config['debug_mode']
 ));

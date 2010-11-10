@@ -4,6 +4,7 @@ define('BASE_DIR', './');
 require BASE_DIR.'common.php';
 
 $url = substr($_SERVER["REQUEST_URI"], strlen($config['url_prefix'])+1);
+$url = substr($url, 0, strpos($url, '?'));
 $url = explode('/', $url);
 
 // TODO: Custom urls (regex?)

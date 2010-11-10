@@ -12,7 +12,7 @@
 		{{/page_head}}
 	</head>
 	<body>
-		<div class="container">
+		<div class="container {{#debug_mode}}showgrid{{/debug_mode}}">
 			<div class="span-24 last">
 				<h1>Header</h1>
 			</div>

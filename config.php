@@ -6,5 +6,8 @@ if (!defined('COMMON_INCLUDED'))
 // Config stuff here
 $config = array(
 	'url_prefix' => 'warwick-portal/',
-	'debug_mode' => true
+	// Force debug mode on
+	'debug_mode' => false,
+	// Allow ?debug=1 for debug mode
+	'allow_debug_mode' => true
 );
