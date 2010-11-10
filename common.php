@@ -34,7 +34,7 @@ $page = new Mu();
 // Add standard data to template view
 $page->addView(array(
 	'page_head' => array(
-		'title' => 'Test',
+		'title' => 'Warwick Portal',
 		'url_prefix' => $config['url_prefix']
 	),
 	'debug_mode' => $config['debug_mode']
