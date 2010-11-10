@@ -12,3 +12,8 @@ if (!defined('BASE_DIR'))
 function __autoload($class_name) {
     include BASE_DIR.'class/'.$class_name.'.php';
 }
+
+// Load the template engine
+$page = new Mu();
+
+require BASE_DIR.'config.php';

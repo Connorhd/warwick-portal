@@ -1,0 +1,11 @@
+Organisation:
+class/ - any classes to be used
+lib/ - external libraries
+page/ - php files for specific pages
+static/ - static files (javascript, CSS, etc)
+template/ - Mustache template files
+
+Variables available in page/ scripts:
+$url - array of items in the URL
+$config - array of site config options
+$page - object with methods for templating
