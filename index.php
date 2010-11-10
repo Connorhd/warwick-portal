@@ -4,7 +4,9 @@ define('BASE_DIR', './');
 require BASE_DIR.'common.php';
 
 $url = substr($_SERVER["REQUEST_URI"], strlen($config['url_prefix'])+1);
-$url = substr($url, 0, strpos($url, '?'));
+if (strpos($url, '?') !== false) {
+	$url = substr($url, 0, strpos($url, '?'));
+}
 $url = explode('/', $url);
 
 // TODO: Custom urls (regex?)
@@ -21,7 +23,7 @@ while ($depth < (count($url) - 1)) {
 	$depth++;
 }
 
-if (is_file(BASE_DIR.$path.$url[$depth].'.php')) {
+if (strlen($url[$depth]) > 0 && is_file(BASE_DIR.$path.$url[$depth].'.php')) {
 	require BASE_DIR.$path.$url[$depth].'.php';
 } else if (is_file(BASE_DIR.$path.$url[$depth].'/index.php')) {
 	require BASE_DIR.$path.$url[$depth].'/index.php';
