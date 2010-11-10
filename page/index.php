@@ -1,3 +1,7 @@
 <?php
 
-echo $page->renderTpl('index', array('planet' => 'World'));
+// Add data
+$page->addView(array('planet' => 'World'));
+
+// Render page
+echo $page->renderTpl('index');
