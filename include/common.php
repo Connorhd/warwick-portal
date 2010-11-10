@@ -1,6 +1,9 @@
 <?php
 
+error_reporting(E_ALL);
+
 // Common script to include to get things rolling
+define('COMMON_INCLUDED', 1);
 
 if (!defined('BASE_DIR'))
 	define('BASE_DIR', './');
