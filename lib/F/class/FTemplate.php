@@ -2,7 +2,7 @@
 
 require(BASE_DIR.'lib/mustache.php/Mustache.php');
 
-class Mu extends Mustache {
+class FTemplate extends Mustache {
 	// Our function for rendering templates
 	public function renderTpl($tpl, $view = array()) {
 		return $this->render(file_get_contents(BASE_DIR.'template/'.$tpl.'.mu'), $view);

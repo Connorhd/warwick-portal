@@ -4,7 +4,7 @@ if (!defined('COMMON_INCLUDED'))
 	exit('Error');
 	
 // Config stuff here
-$config = array(
+$F->config = array(
 	'url_prefix' => 'warwick-portal/',
 	// Force debug mode on
 	'debug_mode' => false,

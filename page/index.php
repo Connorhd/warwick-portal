@@ -1,7 +1,7 @@
 <?php
 
 // Add data
-$page->addView(array('planet' => 'World'));
+$F->template->addView(array('planet' => 'World'));
 
 // Render page
-echo $page->renderTpl('index');
+echo $F->template->renderTpl('index');
