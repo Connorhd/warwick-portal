@@ -5,27 +5,32 @@ $url = substr($_SERVER["REQUEST_URI"], strlen($F->config['url_prefix'])+1);
 if (strpos($url, '?') !== false) {
 	$url = substr($url, 0, strpos($url, '?'));
 }
-$url = explode('/', $url);
+$F->url = explode('/', $url);
 
 // TODO: Custom urls (regex?)
 
-$depth = 0;
-$path = 'page/';
-
-while ($depth < (count($url) - 1)) {
-	if (is_dir(BASE_DIR.$path.$url[$depth]))
-		$path .= $url[$depth].'/';
-	else 
-		break;
-
-	$depth++;
-}
-
-if (strlen($url[$depth]) > 0 && is_file(BASE_DIR.$path.$url[$depth].'.php')) {
-	require BASE_DIR.$path.$url[$depth].'.php';
-} else if (is_file(BASE_DIR.$path.$url[$depth].'/index.php')) {
-	require BASE_DIR.$path.$url[$depth].'/index.php';
+// Admin is a special case
+if ($F->url[0] === 'admin') {
+	require BASE_DIR.'lib/F/admin.php';
 } else {
-	// TODO: nice 404 handler
-	exit('404');
+	$depth = 0;
+	$path = 'page/';
+
+	while ($depth < (count($F->url) - 1)) {
+		if (is_dir(BASE_DIR.$path.$F->url[$depth]))
+			$path .= $F->url[$depth].'/';
+		else 
+			break;
+
+		$depth++;
+	}
+
+	if (strlen($F->url[$depth]) > 0 && is_file(BASE_DIR.$path.$F->url[$depth].'.php')) {
+		require BASE_DIR.$path.$F->url[$depth].'.php';
+	} else if (is_file(BASE_DIR.$path.$F->url[$depth].'/index.php')) {
+		require BASE_DIR.$path.$F->url[$depth].'/index.php';
+	} else {
+		// TODO: nice 404 handler
+		exit('404');
+	}
 }
