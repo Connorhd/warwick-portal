@@ -49,11 +49,14 @@ function __autoload($class_name) {
 	}
 }
 
+// Load error handler
+$F->error = new FError();
+
 // Load the template engine
 $F->template = new FTemplate();
 
-// Load error handler
-$F->error = new FError();
+// Connect to DB
+$F->db = new FDb($F->config['db']['host'], $F->config['db']['user'], $F->config['db']['password'], $F->config['db']['database'], $F->config['db']['prefix']);
 
 // Add standard data to template view
 $F->template->addView(array(
