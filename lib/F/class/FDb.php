@@ -1,11 +1,12 @@
 <?php
 
 class FDb extends mysqli {
-	private $prefix;
+	public $prefix = '';
 	public function __construct($host, $user, $pass, $db, $prefix = '') {
 		global $F;
-		$this->prefix = $prefix;
 		$db = parent::__construct($host, $user, $pass, $db);
+
+		$this->prefix = $this->escape($prefix);
 
 		if (mysqli_connect_error()) {
 			$F->error->fatal('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());

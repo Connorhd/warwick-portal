@@ -1,5 +1,11 @@
+<ul>
 <?php
 
-$module = new Module();
+$modules = Module::listModules();
 
-echo "Hi";
+foreach ($modules as $module) {
+	echo '<li><a href="./code/'.$module['code'].'">'.$module['name'].'</a></li>';
+}
+
+?>
+</ul>
