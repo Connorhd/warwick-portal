@@ -14,5 +14,5 @@
 	<body>
 		<div class="container {{#debug_mode}}showgrid{{/debug_mode}}">
 			<div class="span-24 last">
-				<h1>Header</h1>
+				<h1><a href="/{{url_prefix}}">Warwick Portal</a></h1>
 			</div>

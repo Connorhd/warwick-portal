@@ -64,5 +64,6 @@ $F->template->addView(array(
 		'title' => 'Warwick Portal',
 		'url_prefix' => $F->config['url_prefix']
 	),
+	'url_prefix' => $F->config['url_prefix'],
 	'debug_mode' => $F->config['debug_mode']
 ));
