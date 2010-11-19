@@ -14,5 +14,7 @@
 	<body>
 		<div class="container {{#debug_mode}}showgrid{{/debug_mode}}">
 			<div class="span-24 last">
-				<h1><a href="/{{url_prefix}}">Warwick Portal</a></h1>
+				<h1 style="float: left;"><a href="/{{url_prefix}}">Warwick Portal</a></h1>
+				<span style="float: left; padding: 10px 20px;">Now you're thinking with portal.</span>
 			</div>
+			<hr>
