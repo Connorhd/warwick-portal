@@ -1,11 +1,13 @@
-<ul>
 <?php
 
 $modules = Module::listModules();
 
-foreach ($modules as $module) {
-	echo '<li><a href="./code/'.$module['code'].'">'.$module['name'].'</a></li>';
+foreach ($modules as $key => $module) {
+	$modules[$key] = array_merge($module, array('capitalCode' => strtoupper($module['code'])));
 }
 
-?>
-</ul>
+// Add data
+$F->template->addView(array('module' => $modules));
+
+// Render page
+echo $F->template->renderTpl('module/index');
