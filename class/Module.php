@@ -32,6 +32,12 @@ class Module implements FInstallable {
 		return $data;
 	}
 
+	public static function add($code, $name) {
+		global $F;
+		$code = Module::normaliseName($code);
+		$F->db->query('INSERT INTO `'.$F->db->prefix.'module` (code, name) VALUES (\''.$F->db->escape($code).'\', \''.$F->db->escape($name).'\')');
+	}
+
 
 	public $data = array();
 	public function __construct($code) {
