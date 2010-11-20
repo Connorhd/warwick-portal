@@ -1,10 +1,9 @@
 {{> partials/header}}
 
 			<div class="span-7 colborder">
-				Hello {{planet}}!
+				<a href="./module/">Modules</a>
 			</div>
 			<div class="span-15 last">
-				<a href="./module/">Stuff</a>
+				<p>Useful introduction.</p>
 			</div>
-
 {{> partials/footer}}
